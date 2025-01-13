@@ -10,12 +10,12 @@ Servo servo;
 
 // Distance measurements
 double distance;
-const double setPoint = 4.5;  // Desired distance in inches
+const double setPoint = 4.8;  // Desired distance in inches
 
 // PID Constants (tuned for better performance)
-double Kp = 1;    // Proportional gain
-double Ki = 0.5;    // Integral gain
-double Kd = 0.9 ;    // Derivative gain
+double Kp = 2.5;    // Proportional gain
+double Ki = 0.2;    // Integral gain
+double Kd = 1.2 ;    // Derivative gain
 
 // PID Variables
 double previousError = 0;
@@ -86,7 +86,7 @@ void controlBeam() {
   previousError = error;
 
   // Adjust servo position
-  int servoPosition = 75 + (int)correction;
+  int servoPosition = 68 + (int)correction;
   servoPosition = constrain(servoPosition, 0, 180);
   servo.write(servoPosition);
 
